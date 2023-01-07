@@ -15,6 +15,7 @@
 #include <iostream>
 #include <span>
 #include <vector>
+#include <algorithm>
 
 void print( std::span<int> s )
 {
