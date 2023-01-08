@@ -70,7 +70,7 @@ class Shape
             []( void* shapeBytes ){
                using Model = OwningModel<ShapeT,DrawStrategy>;
                auto* const model = static_cast<Model*>(shapeBytes);
-               (*model->drawer_)( model->shape_ );
+               (model->drawer_)( model->shape_ );
             } )
       , clone_(
             []( void* shapeBytes ) -> void* {
