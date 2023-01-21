@@ -169,6 +169,7 @@ class OpenGLSquareStrategy : public DrawStrategy<Square>
 //---- <Main.cpp> ---------------------------------------------------------------------------------
 
 //#include <Circle.h>
+//#include <DrawAllShapes.h>
 //#include <Square.h>
 //#include <OpenGLCircleStrategy.h>
 //#include <OpenGLSquareStrategy.h>
@@ -194,11 +195,7 @@ int main()
       std::make_unique<Circle>(
          4.1, std::make_unique<OpenGLCircleStrategy>(/*...blue...*/) ) );
 
-   // Drawing all shapes
-   for( auto const& shape : shapes )
-   {
-      shape->draw( /*some arguments*/ );
-   }
+   drawAllShapes(shapes);
 
    return EXIT_SUCCESS;
 }
