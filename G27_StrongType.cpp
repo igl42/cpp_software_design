@@ -10,10 +10,6 @@
 *
 **************************************************************************************************/
 
-#include <cstdlib>
-#include <iostream>
-#include <utility>
-
 
 //---- <Addable.h> --------------------------------------------------------------------------------
 
@@ -91,6 +87,8 @@ struct Swappable
 
 //---- <StrongType.h> -----------------------------------------------------------------------------
 
+#include <utility>
+
 template< typename T, typename Tag, template<typename> class... Skills >
 struct StrongType
    : public Skills< StrongType<T,Tag,Skills...> >...
@@ -128,7 +126,10 @@ void swap( StrongType<T,Tag,Skills...>& a, StrongType<T,Tag,Skills...>& b )
 
 //---- <Distances.h> ------------------------------------------------------------------------------
 
+//#include <IntegralArithmetic.h>
+//#include <Printable.h>
 //#include <StrongType.h>
+//#include <Swappable.h>
 
 template< typename T >
 using Meter = StrongType<T,struct MeterTag,IntegralArithmetic,Printable,Swappable>;
@@ -140,6 +141,7 @@ using Kilometer = StrongType<T,struct KilometerTag,IntegralArithmetic,Printable,
 //---- <Person.h> ---------------------------------------------------------------------------------
 
 //#include <StrongType.h>
+#include <string>
 
 using Surname = StrongType<std::string,struct SurnameTag,Printable,Swappable>;
 
@@ -147,6 +149,7 @@ using Surname = StrongType<std::string,struct SurnameTag,Printable,Swappable>;
 //---- <Main.cpp> ---------------------------------------------------------------------------------
 
 //#include <Distances.h>
+#include <cstdlib>
 #include <iostream>
 
 int main()
